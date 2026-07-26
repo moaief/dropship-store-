@@ -1,0 +1,50 @@
+[
+  {
+    "id": "p1",
+    "name": "هودي أوفرسايز رمادي",
+    "category": "ملابس",
+    "price": 29.00,
+    "cost": 14.50,
+    "cjVid": "REPLACE_WITH_REAL_CJ_VARIANT_ID_1"
+  },
+  {
+    "id": "p2",
+    "name": "سماعة لاسلكية",
+    "category": "إكسسوارات",
+    "price": 39.00,
+    "cost": 19.00,
+    "cjVid": "REPLACE_WITH_REAL_CJ_VARIANT_ID_2"
+  },
+  {
+    "id": "p3",
+    "name": "ساعة يد كلاسيكية",
+    "category": "إكسسوارات",
+    "price": 49.00,
+    "cost": 25.00,
+    "cjVid": "REPLACE_WITH_REAL_CJ_VARIANT_ID_3"
+  },
+  {
+    "id": "p4",
+    "name": "مصباح أجواء LED",
+    "category": "أدوات منزلية",
+    "price": 22.00,
+    "cost": 11.00,
+    "cjVid": "REPLACE_WITH_REAL_CJ_VARIANT_ID_4"
+  },
+  {
+    "id": "p5",
+    "name": "منظم مطبخ دوار",
+    "category": "أدوات منزلية",
+    "price": 16.00,
+    "cost": 8.00,
+    "cjVid": "REPLACE_WITH_REAL_CJ_VARIANT_ID_5"
+  },
+  {
+    "id": "p6",
+    "name": "حقيبة ظهر ضد الماء",
+    "category": "ملابس",
+    "price": 35.00,
+    "cost": 17.50,
+    "cjVid": "REPLACE_WITH_REAL_CJ_VARIANT_ID_6"
+  }
+]
