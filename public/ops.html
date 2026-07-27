@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>غرفة التشغيل</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-mark">د</div>
+      <div><div class="brand-name">غرفة التشغيل</div><div class="brand-sub">دروب — لوحة المالك</div></div>
+    </div>
+    <a class="navlink" href="/index.html">↩ المتجر</a>
+  </div>
+
+  <div class="ledger" id="ledger"></div>
+
+  <h3 style="font-size:16px;font-weight:900;margin-bottom:12px;">الطلبيات</h3>
+  <div id="orders"></div>
+</div>
+
+<script>
+const stampText = { paid: 'تم الدفع', sent_to_supplier: 'أُرسلت للمورد', supplier_error: 'خطأ بالإرسال — راجعها يدوياً' };
+
+async function load() {
+  const [ledgerRes, ordersRes] = await Promise.all([
+    fetch('/api/ledger'), fetch('/api/orders'),
+  ]);
+  const ledger = await ledgerRes.json();
+  const orders = await ordersRes.json();
+
+  document.getElementById('ledger').innerHTML = `
+    <div class="metric"><div class="metric-label">إجمالي المبيعات</div><div class="metric-value">${ledger.revenue.toFixed(2)}</div></div>
+    <div class="metric"><div class="metric-label">مستحق للموردين</div><div class="metric-value">${ledger.cost.toFixed(2)}</div></div>
+    <div class="metric profit"><div class="metric-label">صافي ربحك</div><div class="metric-value">${ledger.profit.toFixed(2)}</div></div>
+  `;
+
+  const box = document.getElementById('orders');
+  if (orders.length === 0) {
+    box.innerHTML = '<div class="empty-note">لسا ما في طلبيات</div>';
+    return;
+  }
+  box.innerHTML = orders.map(o => `
+    <div class="order">
+      <div class="order-top">
+        <span class="order-id">${o.id}</span>
+        <span class="stamp ${o.stage}">${stampText[o.stage] || o.stage}</span>
+      </div>
+      <div>${o.lines.map(l => l.name + (l.qty>1?' ×'+l.qty:'')).join('، ')}</div>
+      <div class="order-bottom">
+        <span>الإيراد: ${o.revenue.toFixed(2)} — للمورد: ${o.cost.toFixed(2)}</span>
+        <span class="order-profit">ربحك: ${o.profit.toFixed(2)}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+load();
+setInterval(load, 4000);
+</script>
+</body>
+</html>
