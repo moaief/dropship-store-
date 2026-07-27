@@ -1,0 +1,51 @@
+:root{
+  --ink:#1B2333; --paper:#EAEDF3; --surface:#FFFFFF; --muted:#6B7280;
+  --line:#D7DBE3; --profit:#1F7A5C; --profit-bg:#E3F3EC;
+  --supplier:#B5502F; --supplier-bg:#F7E9E3; --paid-bg:#EDEBFB; --paid:#5B4FC4;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);font-family:'Tajawal',sans-serif;color:var(--ink);}
+.app{max-width:960px;margin:0 auto;padding:28px 20px 60px;}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-mark{width:38px;height:38px;border-radius:9px;background:var(--ink);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:17px;}
+.brand-name{font-weight:900;font-size:20px;}
+.brand-sub{font-size:12px;color:var(--muted);margin-top:-2px;}
+.navlink{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;}
+.cart-btn{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 16px;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;color:var(--ink);}
+.cart-count{background:var(--ink);color:#fff;border-radius:999px;font-size:11px;min-width:18px;height:18px;display:flex;align-items:center;justify-content:center;padding:0 5px;font-weight:700;}
+.hero-title{font-size:26px;font-weight:900;margin:0 0 6px;line-height:1.3;}
+.hero-sub{font-size:14px;color:var(--muted);margin:0 0 22px;max-width:520px;line-height:1.6;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;}
+.card-icon{height:80px;border-radius:10px;background:var(--paper);display:flex;align-items:center;justify-content:center;font-size:34px;}
+.card-cat{font-size:11px;color:var(--muted);font-weight:700;}
+.card-name{font-size:15px;font-weight:700;margin:0;}
+.card-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:auto;}
+.card-price{font-size:17px;font-weight:900;}
+.add-btn{background:var(--ink);color:#fff;border:none;border-radius:9px;padding:8px 14px;font-weight:700;font-size:13px;cursor:pointer;}
+.overlay{position:fixed;inset:0;background:rgba(27,35,51,.35);display:none;align-items:flex-start;justify-content:flex-end;z-index:20;}
+.overlay.open{display:flex;}
+.drawer{background:var(--surface);width:340px;max-width:90vw;height:100%;padding:20px;overflow-y:auto;}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.close-x{background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);}
+.cart-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px;}
+.cart-empty{color:var(--muted);font-size:13px;text-align:center;padding:30px 0;}
+.cart-total{display:flex;justify-content:space-between;margin:16px 0;font-weight:900;font-size:16px;}
+.checkout-btn{width:100%;background:var(--profit);color:#fff;border:none;border-radius:10px;padding:13px;font-weight:900;font-size:14px;cursor:pointer;}
+.checkout-btn:disabled{opacity:.4;cursor:not-allowed;}
+.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:26px;}
+.metric{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;}
+.metric-label{font-size:12px;color:var(--muted);font-weight:700;margin-bottom:4px;}
+.metric-value{font-size:22px;font-weight:900;font-family:monospace;}
+.metric.profit .metric-value{color:var(--profit);}
+.order{background:var(--surface);border:1.5px dashed var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
+.order-top{display:flex;justify-content:space-between;align-items:center;}
+.order-id{font-family:monospace;font-size:12px;color:var(--muted);}
+.stamp{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:900;padding:4px 10px;border-radius:999px;}
+.stamp.paid{background:var(--paid-bg);color:var(--paid);}
+.stamp.sent_to_supplier{background:var(--supplier-bg);color:var(--supplier);}
+.stamp.supplier_error{background:#FCEBEB;color:#9A2E2E;}
+.order-bottom{display:flex;justify-content:space-between;font-size:13px;}
+.order-profit{font-weight:900;color:var(--profit);font-family:monospace;}
+.empty-note{border:1.5px dashed var(--line);border-radius:14px;padding:36px 20px;text-align:center;color:var(--muted);font-size:13px;}
